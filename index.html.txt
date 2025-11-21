@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت مینیمال | خانه</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">مینیمال.</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="products.html">محصولات</a></li>
+                    <li><a href="#">تماس</a></li>
+                </ul>
+                <div class="header-actions">
+                    <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
+                    <button class="theme-toggle">☀️</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section style="text-align: center; padding: 60px 0;">
+            <h1 style="font-size: 2.5rem; color: var(--accent-color);">طراحی با تمرکز بر محتوا</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                ما سادگی را با کارایی ترکیب می‌کنیم تا تجربه‌ای منحصر به فرد بسازیم.
+            </p>
+        </section>
+
+        <h2 class="section-title">محصولات ویژه</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background: #222 url('https://via.placeholder.com/400x200/222/555') center/cover;"></div>
+                <div class="card-content">
+                    <h3>پکیج UI کیت</h3>
+                    <p>مجموعه‌ای از ابزارهای طراحی رابط کاربری.</p>
+                    <div style="font-weight: bold; margin-top: 10px;">۲۵۰,۰۰۰ تومان</div>
+                    <button class="btn add-to-cart" data-id="1" data-title="پکیج UI کیت" data-price="250000">افزودن به سبد</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background: #333 url('https://via.placeholder.com/400x200/333/666') center/cover;"></div>
+                <div class="card-content">
+                    <h3>هدفون نویز کنسلینگ</h3>
+                    <p>کیفیت صدای بی‌نظیر.</p>
+                    <div style="font-weight: bold; margin-top: 10px;">۴,۵۰۰,۰۰۰ تومان</div>
+                    <button class="btn add-to-cart" data-id="2" data-title="هدفون نویز کنسلینگ" data-price="4500000">افزودن به سبد</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© ۱۴۰۲ کلیه حقوق محفوظ است | طراحی مینیمال</p>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align: center;">سبد خرید شما</h2>
+            <div id="cart-items-list" class="cart-items-container"></div>
+            <div class="cart-summary">
+                <span class="total-price">جمع کل: <span id="final-total">0</span> تومان</span>
+                <button class="btn" onclick="alert('تکمیل خرید انجام شد!')">تکمیل خرید</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

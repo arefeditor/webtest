@@ -1,0 +1,62 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+:root {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --bg-header: rgba(18, 18, 18, 0.95);
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent-color: #4db6ac; 
+    --accent-hover: #26a69a;
+    --border-color: #333;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode {
+    --bg-body: #f4f4f4;
+    --bg-card: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.95);
+    --text-main: #333333;
+    --text-muted: #666666;
+    --accent-color: #00897b;
+    --accent-hover: #00695c;
+    --border-color: #ddd;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+body { font-family: 'Vazirmatn', sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; direction: rtl; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+header { position: fixed; top: 0; width: 100%; background: var(--bg-header); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 900; font-size: 1.5rem; color: var(--accent-color); text-decoration: none; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; }
+.nav-links a:hover { color: var(--accent-color); }
+.header-actions { display: flex; gap: 15px; align-items: center; }
+button.theme-toggle, button.cart-btn { background: none; border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-family: inherit; }
+button.theme-toggle:hover, button.cart-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+main { margin-top: 80px; padding-bottom: 50px; min-height: 80vh; }
+.section-title { text-align: center; margin: 40px 0 20px; color: var(--accent-color); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); }
+.card-img { width: 100%; height: 200px; object-fit: cover; background-color: #333; }
+.card-content { padding: 20px; }
+.btn { display: inline-block; background-color: var(--accent-color); color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; margin-top: 15px; width: 100%; text-align: center; }
+.btn:hover { background-color: var(--accent-hover); }
+footer { text-align: center; padding: 40px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); color: var(--text-muted); margin-top: 50px; }
+
+/* Modal Styles */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); animation: fadeIn 0.3s; }
+.modal-content { background-color: var(--bg-card); margin: 10% auto; padding: 25px; border: 1px solid var(--border-color); width: 90%; max-width: 500px; border-radius: 12px; position: relative; }
+.close-modal { color: var(--text-muted); float: left; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 20px; }
+.close-modal:hover { color: var(--accent-color); }
+.cart-items-container { margin-top: 20px; max-height: 300px; overflow-y: auto; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-color); }
+.remove-item { background: transparent; border: 1px solid #ff5252; color: #ff5252; padding: 5px 10px; border-radius: 6px; cursor: pointer; }
+.remove-item:hover { background: #ff5252; color: #fff; }
+.cart-summary { margin-top: 20px; text-align: center; }
+.total-price { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; display: block; }
+@keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
+@media (max-width: 768px) { .nav-links { display: none; } }
