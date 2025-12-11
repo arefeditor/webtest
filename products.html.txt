@@ -1,64 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه | مینیمال</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">مینیمال.</a>
-                <ul class="nav-links">
-                    <li><a href="index.html">خانه</a></li>
-                    <li><a href="products.html">محصولات</a></li>
-                </ul>
-                <div class="header-actions">
-                    <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
-                    <button class="theme-toggle">☀️</button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container">
-        <h2 class="section-title">تمامی محصولات</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background: #333 url('https://via.placeholder.com/400x300/3a3a3a/777') center/cover;"></div>
-                <div class="card-content">
-                    <h3>ساعت هوشمند</h3>
-                    <p>پایش سلامتی و اعلانات هوشمند.</p>
-                    <div style="font-weight: bold; margin-top: 10px; color: var(--accent-color);">۲,۲۰۰,۰۰۰ تومان</div>
-                    <button class="btn add-to-cart" data-id="102" data-title="ساعت هوشمند" data-price="2200000">افزودن به سبد</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background: #444 url('https://via.placeholder.com/400x300/4a4a4a/888') center/cover;"></div>
-                <div class="card-content">
-                    <h3>کیبورد مکانیکال</h3>
-                    <p>مناسب برای برنامه‌نویسان.</p>
-                    <div style="font-weight: bold; margin-top: 10px; color: var(--accent-color);">۳,۱۰۰,۰۰۰ تومان</div>
-                    <button class="btn add-to-cart" data-id="103" data-title="کیبورد مکانیکال" data-price="3100000">افزودن به سبد</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="text-align: center;">سبد خرید شما</h2>
-            <div id="cart-items-list" class="cart-items-container"></div>
-            <div class="cart-summary">
-                <span class="total-price">جمع کل: <span id="final-total">0</span> تومان</span>
-                <button class="btn" onclick="alert('تکمیل خرید انجام شد!')">تکمیل خرید</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
