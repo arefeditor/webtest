@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرسشگر مقررات و ماشین‌حساب مهندسی</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="brand">
+                <span class="logo">کُدساخت</span>
+                <span class="tagline">پاسخ سریع مقررات + ابزار مهندسی</span>
+            </div>
+            <nav>
+                <a href="#qa">پرسش</a>
+                <a href="#calculator">ماشین‌حساب</a>
+                <a href="#references">نشریات و راهنما</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>پاسخ سریع به پرسش‌های مقررات ملی ساختمان، کار، بیمه و بودجه</h1>
+                <p>این ابزار به شما کمک می‌کند تا بر اساس آخرین سرفصل‌های شناخته‌شده به پاسخ پیشنهادی برسید، اما حتماً برای استناد رسمی به نسخه به‌روز مقررات و نشریات مراجعه کنید.</p>
+                <div class="badges">
+                    <span class="badge">مقررات ملی ساختمان</span>
+                    <span class="badge">قوانین کار و بیمه</span>
+                    <span class="badge">نشریات سازمان برنامه و بودجه</span>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <div class="panel-card">
+                    <h3>نکته مهم</h3>
+                    <p>پاسخ‌ها صرفاً راهنمای اولیه هستند و به‌روزرسانی خودکار مقررات در این نمونه فعال نیست. برای استناد قانونی، متن رسمی و آخرین اصلاحات را بررسی کنید.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="qa" class="card">
+            <div class="section-header">
+                <div>
+                    <p class="eyebrow">پرسش خود را مطرح کنید</p>
+                    <h2>پاسخ پیشنهادی مقرراتی</h2>
+                </div>
+                <div class="chips" id="domain-filters">
+                    <button data-domain="building" class="chip active">مبحث‌های ساختمان</button>
+                    <button data-domain="labor" class="chip">قانون کار</button>
+                    <button data-domain="insurance" class="chip">قوانین بیمه</button>
+                    <button data-domain="budget" class="chip">نشریات و فهارس بها</button>
+                </div>
+            </div>
+
+            <form id="question-form" class="qa-form">
+                <label for="question">پرسش:</label>
+                <textarea id="question" placeholder="مثال: حداقل مقاومت فشاری بتن برای تیر چه مقداری است؟" required></textarea>
+                <div class="form-actions">
+                    <label class="checkbox"><input type="checkbox" id="detailed" checked> پاسخ با جزئیات (خلاصه بند و توصیه اجرا)</label>
+                    <button type="submit" class="primary">دریافت پاسخ</button>
+                </div>
+            </form>
+
+            <div id="answer" class="answer-box hidden">
+                <div class="answer-header">
+                    <h3>پیشنهاد متنی</h3>
+                    <span id="answer-domain" class="pill"></span>
+                </div>
+                <p id="answer-text"></p>
+                <div class="reference-list" id="reference-list"></div>
+                <p class="disclaimer">این پاسخ جایگزین بررسی متن رسمی نیست. آخرین چاپ مقررات و نشریات را حتماً مطالعه کنید.</p>
+            </div>
+        </section>
+
+        <section id="calculator" class="card">
+            <p class="eyebrow">ابزار مهندسی</p>
+            <h2>ماشین‌حساب مهندسی سبک</h2>
+            <div class="calculator-grid">
+                <div class="calc-block">
+                    <h4>لنگر خمشی تیر دوسر مفصل</h4>
+                    <label>بار گسترده (kN/m)</label>
+                    <input type="number" id="load-intensity" placeholder="مثلاً 12" step="0.01">
+                    <label>طول دهانه (m)</label>
+                    <input type="number" id="span-length" placeholder="مثلاً 5" step="0.01">
+                    <button class="secondary" id="calc-moment">محاسبه M<sub>max</sub></button>
+                    <div class="calc-result" id="moment-result"></div>
+                    <small>公式: M<sub>max</sub> = wL² / 8</small>
+                </div>
+
+                <div class="calc-block">
+                    <h4>جمع بار طراحی کف</h4>
+                    <label>بار طراحی (kN/m²)</label>
+                    <input type="number" id="floor-load" placeholder="مثلاً 4" step="0.01">
+                    <label>مساحت موثر (m²)</label>
+                    <input type="number" id="floor-area" placeholder="مثلاً 28" step="0.01">
+                    <button class="secondary" id="calc-floor">محاسبه بار کل</button>
+                    <div class="calc-result" id="floor-result"></div>
+                    <small>فرمول: P = q × A</small>
+                </div>
+
+                <div class="calc-block">
+                    <h4>مساحت میلگرد طولی</h4>
+                    <label>قطر میلگرد (mm)</label>
+                    <input type="number" id="rebar-diameter" placeholder="مثلاً 16" step="1">
+                    <label>تعداد</label>
+                    <input type="number" id="rebar-count" placeholder="مثلاً 4" step="1">
+                    <button class="secondary" id="calc-rebar">محاسبه As</button>
+                    <div class="calc-result" id="rebar-result"></div>
+                    <small>فرمول: As = n × π × (d²) / 4</small>
+                </div>
+            </div>
+            <p class="note">محاسبات برای بررسی سریع هستند. برای طراحی نهایی، دفترچه‌های محاسباتی و کنترل آیین‌نامه‌ای ضروری است.</p>
+        </section>
+
+        <section id="references" class="card">
+            <p class="eyebrow">منابع پیشنهادی</p>
+            <h2>نشریات و اسناد کلیدی برای بررسی</h2>
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h4>مقررات ملی ساختمان</h4>
+                    <ul>
+                        <li>مبحث سوم: حفاظت ساختمان‌ها در برابر حریق</li>
+                        <li>مبحث نهم: طرح و اجرای ساختمان‌های بتن‌آرمه</li>
+                        <li>مبحث دهم: طرح و اجرای ساختمان‌های فولادی</li>
+                    </ul>
+                </div>
+                <div class="reference-card">
+                    <h4>قانون کار و بیمه</h4>
+                    <ul>
+                        <li>قانون کار (آخرین اصلاحات مواد ۷، ۵۱، ۵۹)</li>
+                        <li>قانون تأمین اجتماعی (تعهدات کارفرما و بیمه بیکاری)</li>
+                        <li>آیین‌نامه حفاظت فنی و بهداشت کار</li>
+                    </ul>
+                </div>
+                <div class="reference-card">
+                    <h4>نشریات سازمان برنامه و بودجه</h4>
+                    <ul>
+                        <li>نشریه ۱۰۱ و ۱۱۰: فهرست بها رشته ابنیه</li>
+                        <li>نشریه ۵۱: شرایط عمومی پیمان</li>
+                        <li>نشریه ۲۸۷: راهنمای متره و برآورد</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="note">توصیه می‌شود قبل از هر تصمیم اجرایی یا قراردادی، آخرین چاپ رسمی منابع بالا به همراه بخشنامه‌های اصلاحی مطالعه شود.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <strong>کُدساخت</strong>
+                <p>راهنمای سریع پرسش‌های مقرراتی و ابزارهای سبک محاسبات.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#qa">پرسش جدید</a>
+                <a href="#calculator">محاسبه</a>
+                <a href="#references">منابع</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
